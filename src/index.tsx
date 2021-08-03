@@ -4,6 +4,13 @@ import App from './app'
 import reportWebVitals from './reportWebVitals'
 import GlobalStyles from './components/global-styles'
 
+import 'antd/dist/antd.css'
+
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+
+Amplify.configure(config)
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
