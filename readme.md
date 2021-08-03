@@ -11,3 +11,7 @@ Add typescript support afterwards
 ```shell
 yarn add typescript @types/node @types/react @types/react-dom @types/jest
 ```
+
+# Screenshot
+
+![Basic auth](screenshot.png)

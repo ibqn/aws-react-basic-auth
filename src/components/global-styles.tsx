@@ -11,6 +11,12 @@ const GlobalStyles = styled.createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  :root {
+    --amplify-primary-color: #1890ff;
+    --amplify-primary-tint: #1890ff;
+    --amplify-primary-shade: #1890ff;
+  }
 `
 
 export default GlobalStyles

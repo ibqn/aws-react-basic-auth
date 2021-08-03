@@ -1,35 +1,26 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Nav from './components/nav'
+import Profile from './pages/profile'
+import Protected from './pages/protected'
+import Public from './pages/public'
 
 const App = () => {
   return (
     <Router>
       <Nav />
       <Switch>
-        <Route path="/about">
-          <About />
+        <Route path="/profile">
+          <Profile />
         </Route>
-        <Route path="/users">
-          <Users />
+        <Route path="/protected">
+          <Protected />
         </Route>
         <Route path="/">
-          <Home />
+          <Public />
         </Route>
       </Switch>
     </Router>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>
-}
-
-function About() {
-  return <h2>About</h2>
-}
-
-function Users() {
-  return <h2>Users</h2>
 }
 
 export default App
