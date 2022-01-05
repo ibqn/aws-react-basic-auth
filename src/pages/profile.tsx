@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Auth } from 'aws-amplify'
+import { Auth, Hub } from 'aws-amplify'
 
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { Button } from 'antd'
+
+import { withAuthenticator /*, AmplifySignOut*/ } from '@aws-amplify/ui-react'
 import Container from '../components/container'
 
 type UserType = { username?: string; email?: string; phone_number?: string }
@@ -23,6 +25,16 @@ const Profile = () => {
     checkUser()
   }, [])
 
+  const signOut = async () => {
+    await Auth.signOut()
+    setUser({})
+
+    Hub.dispatch('UI Auth', {
+      event: 'AuthStateChange',
+      message: 'signedout',
+    })
+  }
+
   const { username, email, phone_number } = user
 
   return (
@@ -31,7 +43,10 @@ const Profile = () => {
       <h2>Username: {username}</h2>
       <h3>Email: {email}</h3>
       <h4>Phone: {phone_number}</h4>
-      <AmplifySignOut />
+      {/* <AmplifySignOut /> */}
+      <Button type="primary" size="large" onClick={signOut}>
+        Sign Out
+      </Button>
     </Container>
   )
 }

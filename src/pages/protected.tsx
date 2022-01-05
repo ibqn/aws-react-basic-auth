@@ -5,9 +5,10 @@ import Container from '../components/container'
 
 const Protected = () => {
   const history = useHistory()
+
   useEffect(() => {
     Auth.currentAuthenticatedUser().catch(() => history.push('/profile'))
-  }, [])
+  }, [history])
 
   return (
     <Container>
